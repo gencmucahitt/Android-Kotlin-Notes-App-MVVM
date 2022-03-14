@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.mucahit.notesapp.R
 import com.mucahit.notesapp.ViewModel.NotesViewModel
 import com.mucahit.notesapp.databinding.FragmentHomeBinding
+
 import com.mucahit.notesapp.ui.Adapter.NotesAdapter
 
 class HomeFragment : Fragment() {
@@ -19,7 +20,7 @@ class HomeFragment : Fragment() {
     }
 
 
-    lateinit var binding:FragmentHomeBinding
+    lateinit var binding: FragmentHomeBinding
     val viewModel: NotesViewModel by viewModels()
 
     override fun onCreateView(
@@ -35,10 +36,46 @@ class HomeFragment : Fragment() {
 
         })
 
+        binding.allNotes.setOnClickListener {
+
+            viewModel.getNotes().observe(viewLifecycleOwner, {notesList ->
+                binding.rcvAllNotes.layoutManager=GridLayoutManager(requireContext(),2)
+                binding.rcvAllNotes.adapter= NotesAdapter(requireContext(),notesList)
+
+            })
+        }
+
+        binding.filterHigh.setOnClickListener {
+
+            viewModel.getHighNotes().observe(viewLifecycleOwner, {notesList ->
+                binding.rcvAllNotes.layoutManager=GridLayoutManager(requireContext(),2)
+                binding.rcvAllNotes.adapter= NotesAdapter(requireContext(),notesList)
+
+            })
+        }
+        binding.filterLow.setOnClickListener {
+
+            viewModel.getLowNotes().observe(viewLifecycleOwner, {notesList ->
+                binding.rcvAllNotes.layoutManager=GridLayoutManager(requireContext(),2)
+                binding.rcvAllNotes.adapter= NotesAdapter(requireContext(),notesList)
+
+            })
+        }
+        binding.filterMedium.setOnClickListener {
+
+            viewModel.getMediumNotes().observe(viewLifecycleOwner, {notesList ->
+                binding.rcvAllNotes.layoutManager=GridLayoutManager(requireContext(),2)
+                binding.rcvAllNotes.adapter= NotesAdapter(requireContext(),notesList)
+
+            })
+
+        }
+
 
         binding.btnAddNotes.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_createNotesFragment)
         }
+
 
 
         return binding.root

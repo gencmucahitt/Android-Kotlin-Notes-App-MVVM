@@ -2,14 +2,14 @@ package com.mucahit.notesapp.ui.Fragments
 
 import android.os.Bundle
 import android.text.format.DateFormat
+import android.view.*
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.mucahit.notesapp.Model.Notes
 import com.mucahit.notesapp.R
 import com.mucahit.notesapp.ViewModel.NotesViewModel
@@ -34,6 +34,7 @@ class EditNotesFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding= FragmentEditNotesBinding.inflate(layoutInflater,container,false)
+        setHasOptionsMenu(true)
         binding.edtTitle.setText(oldNotes.data.title)
         binding.edtSubTitle.setText(oldNotes.data.subTitle)
         binding.edtNotes.setText(oldNotes.data.notes)
@@ -105,5 +106,32 @@ class EditNotesFragment : Fragment() {
         Navigation.findNavController(it!!).navigate(R.id.action_editNotesFragment_to_homeFragment)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId==R.id.menu_delete){
+            val bottomSheet: BottomSheetDialog= BottomSheetDialog(requireContext())
+            bottomSheet.setContentView(R.layout.dialog_delete)
+
+            val textviewYes = bottomSheet.findViewById<TextView>(R.id.dialog_yes)
+            val textviewNo = bottomSheet.findViewById<TextView>(R.id.dialog_no)
+
+            textviewYes?.setOnClickListener {
+                viewModel.deleteNotes(oldNotes.data.id!!)
+                bottomSheet.dismiss()
+            }
+
+            textviewNo?.setOnClickListener {
+                bottomSheet.dismiss()
+            }
+
+
+
+            bottomSheet.show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

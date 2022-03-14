@@ -21,6 +21,7 @@
         />
 
     <TextView
+        android:id="@+id/dialog_no"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -34,11 +35,13 @@
         android:text="No"/>
 
     <TextView
+        android:id="@+id/dialog_yes"
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bold"
         android:gravity="center"

@@ -18,6 +18,11 @@
         <entry key="..\:/Users/mucah/Documents/Kotlin/NotesApp/app/src/main/res/layout/fragment_edit_notes.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/mucah/Documents/Kotlin/NotesApp/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/mucah/Documents/Kotlin/NotesApp/app/src/main/res/layout/item_notes.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mucah/Documents/Kotlin/NotesAppMVVM/app/src/main/res/drawable/btn_filter_shape.xml" value="0.29" />
+        <entry key="..\:/Users/mucah/Documents/Kotlin/NotesAppMVVM/app/src/main/res/layout/dialog_delete.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mucah/Documents/Kotlin/NotesAppMVVM/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mucah/Documents/Kotlin/NotesAppMVVM/app/src/main/res/menu/delete_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mucah/Documents/Kotlin/NotesAppMVVM/app/src/main/res/menu/menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
