@@ -11,8 +11,14 @@ import com.mucahit.notesapp.R
 import com.mucahit.notesapp.databinding.ItemNotesBinding
 import com.mucahit.notesapp.ui.Fragments.HomeFragmentDirections
 
-class NotesAdapter(val requireContext: Context, val notesList: List<Notes>) : RecyclerView.Adapter<NotesAdapter.notesViewHolder>(){
+class NotesAdapter(val requireContext: Context, var notesList: List<Notes>) : RecyclerView.Adapter<NotesAdapter.notesViewHolder>(){
+    fun filtering(newFilteredList:ArrayList<Notes>){
+        notesList=newFilteredList
+        notifyDataSetChanged()
+    }
+
     class notesViewHolder(val binding:ItemNotesBinding) : RecyclerView.ViewHolder(binding.root) {
+
 
     }
 
